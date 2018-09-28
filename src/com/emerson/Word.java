@@ -19,7 +19,7 @@ public class Word {
     }
 
     //This method takes a word and splits the letters into objects
-    public void splitLetters() {
+    public Word splitLetters() {
         String[] tempArray = this.word.split("");
         int index = 0;
         for (String item : tempArray) {
@@ -27,12 +27,14 @@ public class Word {
             this.splittedLetters[index] = (letterObject);
             index++;
         }
+        return this;
     }
 
     //This method generates the number of attempts base on the length of the random word
-    public void generateAttempts() {
+    public Word generateAttempts() {
         this.attempts = this.word.length() * 3;
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
+        return this;
     }
 
 
@@ -47,17 +49,17 @@ public class Word {
             this.status = true;
             System.out.println("You guessed it right!");
         }
-
     }
 
     //This method takes the user's guess(letter) and calls the Letter takeGuess method on it.
-    public void takeChar(String guess) {
+    public Word takeChar(String guess) {
         for (Object obj : this.splittedLetters) {
             ((Letter) obj).takeGuess(guess);
         }
+        return this;
     }
 
-    public void trackStatus() {
+    public Word trackStatus() {
         int track = 0;
         for (Object obj : this.splittedLetters) {
             if (!((Letter) obj).checkGuess().equals("_")) {
@@ -77,7 +79,9 @@ public class Word {
         int remainingNum = this.word.length() - track;
         String letterOrLetters = remainingNum >= 2 ? "letters" : "letter";
         System.out.println("... " + remainingNum + " more " + letterOrLetters + " remaining to guess it right.");
+        return this;
     }
+
 }
 
 

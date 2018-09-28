@@ -24,9 +24,9 @@ public class Game {
         System.out.println("YOU GOT A NEW WORD!");
         Word newWord = new Word(randomWord);
         this.newWord = newWord;
-        ((Word) this.newWord).splitLetters();
-        ((Word) this.newWord).generateAttempts();
-        ((Word) this.newWord).displayWord();
+        ((Word) this.newWord).splitLetters()
+                .generateAttempts()
+                .displayWord();
         this.takeUserGuess();
     }
 
@@ -42,9 +42,9 @@ public class Game {
             this.takeUserGuess();
         }
         this.guessedLetters.add(guess);
-        ((Word) this.newWord).takeChar(guess);
-        ((Word) this.newWord).trackStatus();
-        ((Word) this.newWord).displayWord();
+        ((Word) this.newWord).takeChar(guess)
+                .trackStatus()
+                .displayWord();
         this.checkWordStatus();
     }
 

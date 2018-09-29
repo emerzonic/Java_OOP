@@ -17,7 +17,7 @@ public class Game {
     }
 
 
-    // generate random word from wordsBank class
+    //generates random word from wordsBank class
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
@@ -49,7 +49,7 @@ public class Game {
     }
 
 
-    //validate that the user only enter a letter (A-Z)
+    //validates that the user only enter a letter (A-Z)
     private void validateUserInput(String userInput) {
         if (!userInput.matches("[A-Za-z]")) {
             System.out.println("That's not a valid guess");

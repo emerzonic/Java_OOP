@@ -2,7 +2,7 @@ package com.emerson;
 
 public class WordList {
 
-    //This method generates a random word from the words array
+    //This method generates and returns a random word from the words array
     public static String getRandomWord() {
         String wordsList[] = new String[]{"consider", "minute", "accord", "evident", "practice", "intend", "concern", "commit",
                 "issue", "approach", "establish", "utter", "conduct", "engage", "obtain", "scarce", "policy", "straight",

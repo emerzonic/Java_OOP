@@ -59,6 +59,8 @@ public class Word {
         return this;
     }
 
+
+    //This method tracks the status of the guesses remaining and updates if guess is wrong or CORRECT
     public Word trackStatus() {
         int track = 0;
         for (Object obj : this.splittedLetters) {

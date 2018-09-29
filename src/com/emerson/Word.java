@@ -32,7 +32,7 @@ public class Word {
 
     //This method generates the number of attempts base on the length of the random word
     public Word generateAttempts() {
-        this.attempts = this.word.length() * 3;
+        this.attempts = this.word.length();
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
         return this;
     }
@@ -47,7 +47,7 @@ public class Word {
         System.out.println(displayWord);
         if (!displayWord.contains("_")) {
             this.status = true;
-            System.out.println(Color.ANSI_GREEN + "You guessed it right!" + Color.ANSI_GREEN);
+            System.out.println(Color.ANSI_GREEN + "You guessed it right!"+ Color.ANSI_RESET);
         }
     }
 
@@ -69,18 +69,18 @@ public class Word {
             }
         }
         if (this.feedback != track) {
-            System.out.println(Color.ANSI_GREEN + "CORRECT!" + Color.ANSI_GREEN);
+            System.out.println(Color.ANSI_GREEN + "CORRECT!" + Color.ANSI_RESET);
             this.feedback = track;
 
         } else {
             this.attempts--;
-            System.out.println(Color.ANSI_RED + "INCORRECT!" + Color.ANSI_RED);
+            System.out.println(Color.ANSI_RED + "INCORRECT!");
             String attemptOrAttempts = this.attempts >= 2 ? "attempts" : "attempt";
-            System.out.println("You have " + this.attempts + " " + attemptOrAttempts + " remaining.");
+            System.out.println("You have " + this.attempts + " " + attemptOrAttempts + " remaining." + Color.ANSI_RESET);
         }
         int remainingNum = this.word.length() - track;
         String letterOrLetters = remainingNum >= 2 ? "letters" : "letter";
-        System.out.println("... " + remainingNum + " more " + letterOrLetters + " remaining to guess it right.");
+        System.out.println(Color.ANSI_GREEN + "... " + remainingNum + " more " + letterOrLetters + " remaining to guess it right." + Color.ANSI_RESET);
         return this;
     }
 

@@ -16,14 +16,11 @@ public class Game {
     }
 
 
-//    public static final String ANSI_RESET = "\u001B[0m";
-//    public static final String ANSI_GREEN = "\u001B[32m";
-
     //generates random word from wordsBank class
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
-        System.out.println(Color.ANSI_GREEN + "YOU GOT A NEW WORD!"+ Color.ANSI_RESET);
+        System.out.println(Color.ANSI_GREEN + "YOU GOT A NEW WORD!" + Color.ANSI_RESET);
         Word newWord = new Word(randomWord);
         this.newWord = newWord;
         ((Word) this.newWord).splitLetters()
@@ -39,7 +36,7 @@ public class Game {
         this.validateUserInput(userInput);
         String guess = userInput.toLowerCase();
         if (this.guessedLetters.contains(guess)) {
-            System.out.println(Color.ANSI_RED + "You have already guessed " + guess + ". Try again"+ Color.ANSI_RESET);
+            System.out.println(Color.ANSI_RED + "You have already guessed " + guess + ". Try again" + Color.ANSI_RESET);
             System.out.println("Letters already guessed:" + this.guessedLetters.toString());
             this.takeUserGuess();
         }
@@ -54,7 +51,7 @@ public class Game {
     //validates that the user only enter a letter (A-Z)
     private void validateUserInput(String userInput) {
         if (!userInput.matches("[A-Za-z]")) {
-            System.out.println("That's not a valid guess");
+            System.out.println(Color.ANSI_RED + "That's not a valid guess" + Color.ANSI_RESET);
             this.takeUserGuess();
         }
     }
@@ -68,8 +65,8 @@ public class Game {
             this.generateWord();
         } else {
             if (((Word) this.newWord).attempts <= 0) {
-                System.out.println("G A M E  O V E R !");
-                System.out.println("The word was " + ((Word) this.newWord).word);
+                System.out.println(Color.ANSI_RED + "G A M E  O V E R !" + Color.ANSI_RESET);
+                System.out.println("The word was: " + ((Word) this.newWord).word);
                 this.resetGame();
             }
             this.takeUserGuess();

@@ -15,8 +15,8 @@ public class Word {
         this.status = false;
         this.feedback = 0;
         this.attempts = 0;
-
     }
+
 
     //This method takes a word and splits the letters into objects
     public Word splitLetters() {
@@ -30,9 +30,10 @@ public class Word {
         return this;
     }
 
+
     //This method generates the number of attempts base on the length of the random word
     public Word generateAttempts() {
-        this.attempts = this.word.length();
+        this.attempts = this.word.length() * 3;
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
         return this;
     }
@@ -50,6 +51,7 @@ public class Word {
             System.out.println(Color.ANSI_GREEN + "You guessed it right!"+ Color.ANSI_RESET);
         }
     }
+
 
     //This method takes the user's guess(letter) and calls the Letter takeGuess method on it.
     public Word takeChar(String guess) {

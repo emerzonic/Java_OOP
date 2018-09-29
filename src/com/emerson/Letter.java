@@ -19,7 +19,6 @@ public class Letter {
         }else {
             return this.placeHolder;
         }
-
     }
 
 

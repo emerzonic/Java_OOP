@@ -2,7 +2,7 @@
 #### CLI word guessing game built using Java OOP. 
 
 ##### The game starts with a random word been selected from the word bank. 
-* A fail attempt is then generated base on how long the chosen word is
+* A fail attempt is then generated base on the length of the chosen word
 * The word is display with an underscore representing each letter 
 
 ##### The player is then prompted for guesses

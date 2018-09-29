@@ -20,7 +20,7 @@ public class Game {
     // generate random word from wordsBank class
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
-        System.out.println(randomWord);
+//        System.out.println(randomWord);//for testing only
         System.out.println("YOU GOT A NEW WORD!");
         Word newWord = new Word(randomWord);
         this.newWord = newWord;

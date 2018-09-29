@@ -5,11 +5,10 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Game {
-    Object newWord;
-    int score;
-    ArrayList<String> guessedLetters;
-    Scanner scanner = new Scanner(System.in);
-
+    private Object newWord;
+    private int score;
+    private ArrayList<String> guessedLetters;
+    private Scanner scanner = new Scanner(System.in);
 
     public Game() {
         this.score = 0;
@@ -17,11 +16,14 @@ public class Game {
     }
 
 
+//    public static final String ANSI_RESET = "\u001B[0m";
+//    public static final String ANSI_GREEN = "\u001B[32m";
+
     //generates random word from wordsBank class
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
-        System.out.println("YOU GOT A NEW WORD!");
+        System.out.println(Color.ANSI_GREEN + "YOU GOT A NEW WORD!"+ Color.ANSI_RESET);
         Word newWord = new Word(randomWord);
         this.newWord = newWord;
         ((Word) this.newWord).splitLetters()
@@ -37,7 +39,7 @@ public class Game {
         this.validateUserInput(userInput);
         String guess = userInput.toLowerCase();
         if (this.guessedLetters.contains(guess)) {
-            System.out.println("You have already guessed " + guess + ". Try again");
+            System.out.println(Color.ANSI_RED + "You have already guessed " + guess + ". Try again"+ Color.ANSI_RESET);
             System.out.println("Letters already guessed:" + this.guessedLetters.toString());
             this.takeUserGuess();
         }

@@ -1,9 +1,9 @@
 package com.emerson;
 
 public class Letter {
-    String  letter;
-    String placeHolder;
-    boolean status;
+    private String  letter;
+    private String placeHolder;
+    private boolean status;
 
     public Letter(String letter){
         this.letter = letter;

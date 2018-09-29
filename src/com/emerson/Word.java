@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Word {
     String word;
-    Object[] splittedLetters;
+    private Object[] splittedLetters;
     boolean status;
     int feedback;
     int attempts;
@@ -47,7 +47,7 @@ public class Word {
         System.out.println(displayWord);
         if (!displayWord.contains("_")) {
             this.status = true;
-            System.out.println("You guessed it right!");
+            System.out.println(Color.ANSI_GREEN + "You guessed it right!" + Color.ANSI_GREEN);
         }
     }
 
@@ -69,12 +69,12 @@ public class Word {
             }
         }
         if (this.feedback != track) {
-            System.out.println("CORRECT!");
+            System.out.println(Color.ANSI_GREEN + "CORRECT!" + Color.ANSI_GREEN);
             this.feedback = track;
 
         } else {
             this.attempts--;
-            System.out.println("INCORRECT!");
+            System.out.println(Color.ANSI_RED + "INCORRECT!" + Color.ANSI_RED);
             String attemptOrAttempts = this.attempts >= 2 ? "attempts" : "attempt";
             System.out.println("You have " + this.attempts + " " + attemptOrAttempts + " remaining.");
         }

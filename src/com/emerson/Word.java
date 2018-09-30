@@ -51,17 +51,17 @@ public class Word {
     }
 
 
-
     //This method takes each letter object and calls the Letter checkGuess method and returns a word and status of user guesses left.
     public void displayWord() {
-        String displayWord = "";
+        StringBuilder displayWord = new StringBuilder();
         for (Object obj : this.splittedLetters) {
-            displayWord += " " + ((Letter) obj).checkGuess();
+            String character = " " + ((Letter) obj).checkGuess();
+            displayWord.append(character);
         }
         System.out.println(displayWord);
-        if (!displayWord.contains("_")) {
+        if (!displayWord.toString().contains("_")) {
             this.status = true;
-            System.out.println(Color.ANSI_GREEN + "You guessed it right!"+ Color.ANSI_RESET);
+            System.out.println(Color.green + "You guessed it right!" + Color.reset);
         }
     }
 
@@ -77,28 +77,29 @@ public class Word {
 
     //This method tracks the status of the guesses remaining and updates if guess is wrong or CORRECT
     public Word trackStatus() {
-        int track = 0;
+        int tracker = 0;
         for (Object obj : this.splittedLetters) {
             if (!((Letter) obj).checkGuess().equals("_")) {
-                track++;
+                tracker++;
             }
         }
-        if (this.feedback != track) {
-            System.out.println(Color.ANSI_GREEN + "CORRECT!" + Color.ANSI_RESET);
-            this.feedback = track;
+        if (this.feedback != tracker) {
+            System.out.println(Color.green + "CORRECT!" + Color.reset);
+            this.feedback = tracker;
         } else {
             this.attempts--;
-            System.out.println(Color.ANSI_RED + "INCORRECT!");
+            System.out.println(Color.red + "INCORRECT!");
             String attemptOrAttempts = this.attempts >= 2 ? "attempts" : "attempt";
-            System.out.println("You have " + this.attempts + " " + attemptOrAttempts + " remaining." + Color.ANSI_RESET);
+            System.out.println("You have " + this.attempts + " " + attemptOrAttempts + " remaining." + Color.reset);
         }
-        int remainingNum = this.word.length() - track;
-        String letterOrLetters = remainingNum >= 2 ? "letters" : "letter";
-        System.out.println(Color.ANSI_GREEN + "... " + remainingNum + " more " + letterOrLetters + " remaining to guess it right." + Color.ANSI_RESET);
+        int remainingLetters = this.word.length() - tracker;
+        String letterOrLetters = remainingLetters >= 2 ? "letters" : "letter";
+        System.out.println(Color.green + "... " + remainingLetters + " more " + letterOrLetters + " remaining to guess it right." + Color.reset);
         return this;
     }
-
 }
+
+
 
 
 

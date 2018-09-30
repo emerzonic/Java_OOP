@@ -86,7 +86,6 @@ public class Word {
         if (this.feedback != track) {
             System.out.println(Color.ANSI_GREEN + "CORRECT!" + Color.ANSI_RESET);
             this.feedback = track;
-
         } else {
             this.attempts--;
             System.out.println(Color.ANSI_RED + "INCORRECT!");

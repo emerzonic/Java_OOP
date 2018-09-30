@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class Word {
     String word;
     private Object[] splittedLetters;
-    boolean status;
-    int feedback;
-    int attempts;
+    private boolean status;
+    private int feedback;
+    private int attempts;
 
     public Word(String word) {
         this.word = word;
@@ -15,6 +15,14 @@ public class Word {
         this.status = false;
         this.feedback = 0;
         this.attempts = 0;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public int getAttempts() {
+        return attempts;
     }
 
 
@@ -32,11 +40,12 @@ public class Word {
 
 
     //This method generates the number of attempts base on the length of the random word
-    public Word generateAttempts() {
+    public Word setAttempts() {
         this.attempts = this.word.length() * 3;
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
         return this;
     }
+
 
 
     //This method takes each letter object and calls the Letter checkGuess method and returns a word and status of user guesses left.

@@ -20,7 +20,7 @@ public class Game {
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
-        System.out.println(Color.ANSI_GREEN + "YOU GOT A NEW WORD!" + Color.ANSI_RESET);
+        System.out.println(Color.green + "YOU GOT A NEW WORD!" + Color.reset);
         this.newWord = new Word(randomWord);
         ((Word) this.newWord).splitLetters()
                 .setAttempts()
@@ -35,7 +35,7 @@ public class Game {
         this.validateUserInput(userInput);
         String guess = userInput.toLowerCase();
         if (this.guessedLetters.contains(guess)) {
-            System.out.println(Color.ANSI_RED + "You have already guessed " + guess + ". Try again" + Color.ANSI_RESET);
+            System.out.println(Color.red + "You have already guessed " + guess + ". Try again" + Color.reset);
             System.out.println("Letters already guessed:" + this.guessedLetters.toString());
             this.takeUserGuess();
         }
@@ -50,7 +50,7 @@ public class Game {
     //validates that the user only enter a letter (A-Z)
     private void validateUserInput(String userInput) {
         if (!userInput.matches("[A-Za-z]")) {
-            System.out.println(Color.ANSI_RED + "That's not a valid guess" + Color.ANSI_RESET);
+            System.out.println(Color.red + "That's not a valid guess" + Color.reset);
             this.takeUserGuess();
         }
     }
@@ -64,7 +64,7 @@ public class Game {
             this.generateWord();
         } else {
             if (((Word) this.newWord).getAttempts() <= 0) {
-                System.out.println(Color.ANSI_RED + "G A M E  O V E R !" + Color.ANSI_RESET);
+                System.out.println(Color.red + "G A M E  O V E R !" + Color.reset);
                 System.out.println("The word was: " + ((Word) this.newWord).getWord());
                 this.resetGame();
             }

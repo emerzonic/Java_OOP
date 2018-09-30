@@ -76,9 +76,9 @@ public class Game {
     //Asks the user to continue playing or not after game is over
     private void resetGame() {
         System.out.println("WOULD YOU LIKE TO PLAY AGAIN? y/n");
-        String userResponse = scanner.nextLine();
-        String yes = userResponse.toLowerCase();
-        if (yes.equals("y")) {
+        String userInput = scanner.nextLine();
+        String userResponse = userInput.toLowerCase();
+        if (userResponse.equals("y")) {
             this.guessedLetters.clear();
             this.generateWord();
         } else {

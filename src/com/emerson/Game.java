@@ -24,7 +24,7 @@ public class Game {
         Word newWord = new Word(randomWord);
         this.newWord = newWord;
         ((Word) this.newWord).splitLetters()
-                .generateAttempts()
+                .setAttempts()
                 .displayWord();
         this.takeUserGuess();
     }
@@ -58,13 +58,13 @@ public class Game {
 
     //Checks if all the letters the word have been guess and also the player fail attempts remaining.
     private void checkWordStatus() {
-        if (((Word) this.newWord).status) {
+        if (((Word) this.newWord).isStatus()) {
             this.score++;
             System.out.println("Your score is " + this.score);
             this.guessedLetters.clear();
             this.generateWord();
         } else {
-            if (((Word) this.newWord).attempts <= 0) {
+            if (((Word) this.newWord).getAttempts() <= 0) {
                 System.out.println(Color.ANSI_RED + "G A M E  O V E R !" + Color.ANSI_RESET);
                 System.out.println("The word was: " + ((Word) this.newWord).word);
                 this.resetGame();

@@ -21,8 +21,7 @@ public class Game {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
         System.out.println(Color.ANSI_GREEN + "YOU GOT A NEW WORD!" + Color.ANSI_RESET);
-        Word newWord = new Word(randomWord);
-        this.newWord = newWord;
+        this.newWord = new Word(randomWord);
         ((Word) this.newWord).splitLetters()
                 .setAttempts()
                 .displayWord();

@@ -65,7 +65,7 @@ public class Game {
         } else {
             if (((Word) this.newWord).getAttempts() <= 0) {
                 System.out.println(Color.ANSI_RED + "G A M E  O V E R !" + Color.ANSI_RESET);
-                System.out.println("The word was: " + ((Word) this.newWord).word);
+                System.out.println("The word was: " + ((Word) this.newWord).getWord());
                 this.resetGame();
             }
             this.takeUserGuess();
@@ -77,8 +77,8 @@ public class Game {
     private void resetGame() {
         System.out.println("WOULD YOU LIKE TO PLAY AGAIN? y/n");
         String userResponse = scanner.nextLine();
-        userResponse.toLowerCase();
-        if (userResponse.equals("y")) {
+        String yes = userResponse.toLowerCase();
+        if (yes.equals("y")) {
             this.guessedLetters.clear();
             this.generateWord();
         } else {

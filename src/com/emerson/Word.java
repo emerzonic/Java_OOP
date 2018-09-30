@@ -3,7 +3,7 @@ package com.emerson;
 import java.util.Arrays;
 
 public class Word {
-    String word;
+    private String word;
     private Object[] splittedLetters;
     private boolean status;
     private int feedback;
@@ -15,6 +15,10 @@ public class Word {
         this.status = false;
         this.feedback = 0;
         this.attempts = 0;
+    }
+
+    public String getWord() {
+        return word;
     }
 
     public boolean isStatus() {

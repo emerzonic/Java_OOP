@@ -16,7 +16,6 @@ public class WordList {
                 "manifest", "notion", "scale", "formal", "resource", "persist", "contempt", "tour", "plead", "weigh",
                 "mode", "distinction", "inclined", "attribute", "exert"};
 
-        String randomWord = wordsList[(int) (Math.random() * wordsList.length)];
-        return randomWord;
+        return  wordsList[(int) (Math.random() * wordsList.length)];
     }
 }

@@ -2,7 +2,6 @@ package com.emerson;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 
 public class Game {
     private Object newWord;
@@ -16,7 +15,7 @@ public class Game {
     }
 
 
-    //generates random word from wordsBank class
+    //Generates random word from wordsBank class
     public void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
@@ -36,7 +35,7 @@ public class Game {
         String guess = userInput.toLowerCase();
         if (this.guessedLetters.contains(guess)) {
             System.out.println(Color.red + "You have already guessed " + guess + ". Try again" + Color.reset);
-            System.out.println("Letters already guessed:" + this.guessedLetters.toString());
+            System.out.println("Letters already guessed: " + String.join(", ", guessedLetters));
             this.takeUserGuess();
         }
         this.guessedLetters.add(guess);

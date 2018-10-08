@@ -27,6 +27,7 @@ public class Game {
         this.takeUserGuess();
     }
 
+
     //This method takes the user guess and controls the game
     private void takeUserGuess() {
         System.out.println("Guess a letter: ");

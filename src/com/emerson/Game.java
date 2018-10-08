@@ -16,7 +16,7 @@ public class Game {
 
 
     //Generates random word from wordsBank class
-    public void generateWord() {
+    void generateWord() {
         String randomWord = WordList.getRandomWord();
 //        System.out.println(randomWord);//for testing only
         System.out.println(Color.green + "YOU GOT A NEW WORD!" + Color.reset);

@@ -17,21 +17,21 @@ public class Word {
         this.attempts = 0;
     }
 
-    public String getWord() {
+    String getWord() {
         return word;
     }
 
-    public boolean isStatus() {
+    boolean isStatus() {
         return status;
     }
 
-    public int getAttempts() {
+    int getAttempts() {
         return attempts;
     }
 
 
     //This method takes a word and splits the letters into objects
-    public Word splitLetters() {
+    Word splitLetters() {
         String[] tempArray = this.word.split("");
         int index = 0;
         for (String item : tempArray) {
@@ -44,7 +44,7 @@ public class Word {
 
 
     //This method generates the number of attempts base on the length of the random word
-    public Word setAttempts() {
+    Word setAttempts() {
         this.attempts = this.word.length() * 3;
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
         return this;
@@ -52,7 +52,7 @@ public class Word {
 
 
     //This method takes each letter object and calls the Letter checkGuess method and returns a word and status of user guesses left.
-    public void displayWord() {
+    void displayWord() {
         StringBuilder displayWord = new StringBuilder();
         for (Object obj : this.splittedLetters) {
             String character = " " + ((Letter) obj).checkGuess();
@@ -67,7 +67,7 @@ public class Word {
 
 
     //This method takes the user's guess(letter) and calls the Letter takeGuess method on it.
-    public Word takeChar(String guess) {
+    Word takeChar(String guess) {
         for (Object obj : this.splittedLetters) {
             ((Letter) obj).takeGuess(guess);
         }
@@ -76,7 +76,7 @@ public class Word {
 
 
     //This method tracks the status of the guesses remaining and updates if guess is wrong or CORRECT
-    public Word trackStatus() {
+    Word trackStatus() {
         int tracker = 0;
         for (Object obj : this.splittedLetters) {
             if (!((Letter) obj).checkGuess().equals("_")) {

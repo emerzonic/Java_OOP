@@ -55,7 +55,7 @@ public class Game {
         }
     }
 
-    //Checks if all the letters the word have been guess and also the player fail attempts remaining.
+    //Checks if all the letters of the word have been guess and also the player fail attempts remaining.
     private void checkWordStatus() {
         if (((Word) this.newWord).isStatus()) {
             this.score++;

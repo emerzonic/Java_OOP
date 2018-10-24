@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Word {
     private String word;
-    private Object[] splittedLetters;
+    private Letter[] splittedLetters;
     private boolean status;
     private int feedback;
     private int attempts;
 
     public Word(String word) {
         this.word = word;
-        this.splittedLetters = new Object[this.word.length()];
+        this.splittedLetters = new Letter[this.word.length()];
         this.status = false;
         this.feedback = 0;
         this.attempts = 0;
@@ -35,7 +35,7 @@ public class Word {
         String[] tempArray = this.word.split("");
         int index = 0;
         for (String item : tempArray) {
-            Object letterObject = new Letter(item);
+            Letter letterObject = new Letter(item);
             this.splittedLetters[index] = (letterObject);
             index++;
         }
@@ -54,8 +54,8 @@ public class Word {
     //This method takes each letter object and calls the Letter checkGuess method and returns a word and status of user guesses left.
     void displayWord() {
         StringBuilder displayWord = new StringBuilder();
-        for (Object obj : this.splittedLetters) {
-            String character = " " + ((Letter) obj).checkGuess();
+        for (Letter letter : this.splittedLetters) {
+            String character = " " + letter.checkGuess();
             displayWord.append(character);
         }
         System.out.println(displayWord);
@@ -68,8 +68,8 @@ public class Word {
 
     //This method takes the user's guess(letter) and calls the Letter takeGuess method on it.
     Word takeChar(String guess) {
-        for (Object obj : this.splittedLetters) {
-            ((Letter) obj).takeGuess(guess);
+        for (Letter letter : this.splittedLetters) {
+            letter.takeGuess(guess);
         }
         return this;
     }
@@ -78,8 +78,8 @@ public class Word {
     //This method tracks the status of the guesses remaining and updates if guess is wrong or CORRECT
     Word trackStatus() {
         int tracker = 0;
-        for (Object obj : this.splittedLetters) {
-            if (!((Letter) obj).checkGuess().equals("_")) {
+        for (Letter letter : this.splittedLetters) {
+            if (!letter.checkGuess().equals("_")) {
                 tracker++;
             }
         }

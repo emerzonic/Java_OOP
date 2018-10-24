@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-    private Object newWord;
+    private Word newWord;
     private int score;
     private ArrayList<String> guessedLetters;
     private Scanner scanner = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Game {
 //        System.out.println(randomWord);//for testing only
         System.out.println(Color.green + "YOU GOT A NEW WORD!" + Color.reset);
         this.newWord = new Word(randomWord);
-        ((Word) this.newWord).splitLetters()
+        this.newWord.splitLetters()
                 .setAttempts()
                 .displayWord();
         this.takeUserGuess();
@@ -65,7 +65,7 @@ public class Game {
         } else {
             if (((Word) this.newWord).getAttempts() <= 0) {
                 System.out.println(Color.red + "G A M E  O V E R !" + Color.reset);
-                System.out.println("The word was: " + ((Word) this.newWord).getWord());
+                System.out.println("The word was: " + this.newWord.getWord());
                 this.resetGame();
             }
             this.takeUserGuess();

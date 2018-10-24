@@ -94,7 +94,8 @@ public class Word {
         }
         int remainingLetters = this.word.length() - tracker;
         String letterOrLetters = remainingLetters >= 2 ? "letters" : "letter";
-        System.out.println(Color.green + "... " + remainingLetters + " more " + letterOrLetters + " remaining to guess it right." + Color.reset);
+        System.out.println(Color.green + "... " + remainingLetters + " more " +
+                letterOrLetters + " remaining to guess it right." + Color.reset);
         return this;
     }
 }

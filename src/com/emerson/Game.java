@@ -35,8 +35,8 @@ public class Game {
         this.validateUserInput(userInput);
         String guess = userInput.toLowerCase();
         if (this.guessedLetters.contains(guess)) {
-            System.out.println(Color.red + "You have already guessed " + guess + ". Try again" + Color.reset);
-            System.out.println("Letters already guessed: " + String.join(", ", guessedLetters));
+            System.out.println(Color.red + "You have already guessed " + guess + ". Try again" + Color.reset+"\n"+
+                                        "Letters already guessed: " + String.join(", ", guessedLetters));
             this.takeUserGuess();
         }
         this.guessedLetters.add(guess);
@@ -64,8 +64,8 @@ public class Game {
             this.generateWord();
         } else {
             if (((Word) this.newWord).getAttempts() <= 0) {
-                System.out.println(Color.red + "G A M E  O V E R !" + Color.reset);
-                System.out.println("The word was: " + this.newWord.getWord());
+                System.out.println(Color.red + "G A M E  O V E R !" + Color.reset+ "\n"+
+                                        "The word was: " + this.newWord.getWord());
                 this.resetGame();
             }
             this.takeUserGuess();

@@ -40,7 +40,7 @@ public class Game {
             this.takeUserGuess();
         }
         this.guessedLetters.add(guess);
-        ((Word) this.newWord).takeChar(guess)
+        this.newWord.takeChar(guess)
                 .trackStatus()
                 .displayWord();
         this.checkWordStatus();
@@ -63,7 +63,7 @@ public class Game {
             this.guessedLetters.clear();
             this.generateWord();
         } else {
-            if (((Word) this.newWord).getAttempts() <= 0) {
+            if (this.newWord.getAttempts() <= 0) {
                 System.out.println(Color.red + "G A M E  O V E R !" + Color.reset+ "\n"+
                                         "The word was: " + this.newWord.getWord());
                 this.resetGame();

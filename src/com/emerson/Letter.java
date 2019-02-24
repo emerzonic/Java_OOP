@@ -14,11 +14,13 @@ package com.emerson;
 
     //This method checks every letter in the word and returns a letter or a placeholder underscore
      String checkGuess(){
+       String character = "";
         if(this.status){
-            return this.letter;
+          character = letter;
         }else {
-            return this.placeHolder;
+          character = placeHolder;
         }
+        return character;
     }
 
 

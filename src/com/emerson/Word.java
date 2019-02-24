@@ -51,7 +51,8 @@ public class Word {
     }
 
 
-    //This method takes each letter object and calls the Letter checkGuess method and returns a word and status of user guesses left.
+    //This method takes each letter object and calls the Letter checkGuess
+    // method and returns a word and status of user guesses left.
     void displayWord() {
         StringBuilder displayWord = new StringBuilder();
         for (Letter letter : this.splittedLetters) {

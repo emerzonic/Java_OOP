@@ -27,8 +27,6 @@ public class Game {
         this.takeUserGuess();
     }
 
-
-    //This method takes the user guess and controls the game
     private void takeUserGuess() {
         System.out.println("Guess a letter: ");
         String userInput = scanner.nextLine();
@@ -46,8 +44,6 @@ public class Game {
         this.checkWordStatus();
     }
 
-
-    //validates that the user only enter a letter (A-Z)
     private void validateUserInput(String userInput) {
         if (!userInput.matches("[A-Za-z]")) {
             System.out.println(Color.red + "That's not a valid guess" + Color.reset);
@@ -55,7 +51,6 @@ public class Game {
         }
     }
 
-    //Checks if all the letters of the word have been guess and also the player fail attempts remaining.
     private void checkWordStatus() {
         if (this.newWord.isStatus()) {
             this.score++;
@@ -72,8 +67,6 @@ public class Game {
         }
     }
 
-
-    //Asks the user to continue playing or not after game is over
     private void resetGame() {
         System.out.println("WOULD YOU LIKE TO PLAY AGAIN? y/n");
         String userInput = scanner.nextLine();

@@ -12,13 +12,11 @@ class Letter {
   }
 
 
-  //This method checks every letter in the word and returns a letter or a placeholder underscore
   String checkGuess() {
     return status ? letter : placeHolder;
   }
 
 
-  //This method takes a letter as guess and checks it against each letter of the word
   void takeGuess(String guess) {
     if (this.letter.equals(guess)) {
       this.status = true;

@@ -30,7 +30,6 @@ public class Word {
     }
 
 
-    //This method takes a word and splits the letters into objects
     Word splitLetters() {
         String[] tempArray = this.word.split("");
         int index = 0;
@@ -43,7 +42,6 @@ public class Word {
     }
 
 
-    //This method generates the number of attempts base on the length of the random word
     Word setAttempts() {
         this.attempts = this.word.length() * 3;
         System.out.println("You have " + this.attempts + " fail attempts to make on this word.");
@@ -51,8 +49,6 @@ public class Word {
     }
 
 
-    //This method takes each letter object and calls the Letter checkGuess
-    // method and returns a word and status of user guesses left.
     void displayWord() {
         StringBuilder displayWord = new StringBuilder();
         for (Letter letter : this.splittedLetters) {
@@ -67,7 +63,6 @@ public class Word {
     }
 
 
-    //This method takes the user's guess(letter) and calls the Letter takeGuess method on it.
     Word takeChar(String guess) {
         for (Letter letter : this.splittedLetters) {
             letter.takeGuess(guess);
@@ -76,7 +71,6 @@ public class Word {
     }
 
 
-    //This method tracks the status of the guesses remaining and updates if guess is wrong or CORRECT
     Word trackStatus() {
         int tracker = 0;
         for (Letter letter : this.splittedLetters) {
